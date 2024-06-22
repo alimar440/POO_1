@@ -4,11 +4,11 @@ Ensemble::Ensemble(int nb ){
 
     
     size = nb ;
-    element = new int(nb) ;
+    element = new int[nb] ;
 
     for (int i = 0; i < nb; i++) {
         element[i] = 0;
-        cout<<i;
+        
         
     }
 
@@ -131,14 +131,61 @@ int Ensemble::operator%(int el ) {
         while(element[i] != 0  ){
                
             if(el == element[i])    
-                return i ;
+                return 1 ;
             i++ ;
         }
-        return -1 ;
+        return 0 ;
 
 }
 
-    
+Ensemble& Ensemble::operator=(const Ensemble& ens){
 
-
+    delete(element) ;
+    size = ens.Esize() ;
+    element = new int [ens.size] ;
     
+    int i= 0 ; 
+    while( i< size  ){
+            
+        element[i]= ens.element[i] ;
+
+        i++ ;
+    } 
+    
+    return *this ;
+
+}
+    
+Ensemble Ensemble::operator+(const Ensemble& ens ) {
+
+    Ensemble ens1(size + ens.size) ;
+    
+    for(int i = 0 ; i< ens.size ; i++){
+
+        ens1.ajouter(ens.element[i]) ; 
+        
+    }
+
+    for(int i = 0 ; i< size ; i++){
+
+        ens1.ajouter(element[i]) ; 
+    
+    }
+    return  ens1 ;
+    
+}
+
+Ensemble Ensemble::operator*( Ensemble& ens)  {
+
+   
+    Ensemble ens1(size+ens.size) ;
+
+    for(int i = 0 ; i< ens.size ; i++){
+
+        if(this->element[i] != 0 && ens % element[i] )
+            ens1.ajouter(element[i]) ; 
+        
+    }
+    return ens1 ;
+}
+

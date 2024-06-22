@@ -15,6 +15,7 @@ public :
 
     Ensemble(int nb ) ;
     int cardinal()const ;
+    int Esize()const{return size ;} ; 
     void ajouter( int el ) ;
     void supprimer(int el ) ;
     int contient(int el) ;
@@ -26,6 +27,11 @@ public :
      Ensemble& operator<<(int el) ;
      Ensemble& operator>>(int el) ;
     int operator%(int el ) ;
+    Ensemble& operator=(const Ensemble& ens) ;
+
+    Ensemble operator+(const Ensemble& ens ) ;
+    Ensemble operator*( Ensemble& ens)   ;
+
 
     
 
