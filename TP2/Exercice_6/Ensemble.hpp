@@ -2,21 +2,22 @@
 #define ENSEMBLE_HPP 
 
 
-#include<iostrem>
+#include<iostream>
 using namespace std ;
 
 
 struct Node{ 
 
-    int size ;
+    
     int data ;
     Node* suiv ;
 
     Node(int d) : data(d), suiv(nullptr) {}
+    
 };
 
 class Ensemble{
-
+    int size ;
     Node* tete ;
     Node* courant ;
 public:
@@ -26,9 +27,10 @@ public:
    
     void ajouter( int el ) ;
     void supprimer(int el ) ;
-    int contient(int el) ;
-    void printf() ;
+    int contient(int el)const ;
+    void printf()const ;
     ~Ensemble();
 
 };
-#endif ENSEMBLE_HPP
+
+#endif
