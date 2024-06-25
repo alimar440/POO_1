@@ -1,7 +1,7 @@
 #include"Ensemble.hpp"
 
 //constructor for inicialize the class 
-Ensemble::Ensemble(int nb ): size(nb){}
+Ensemble::Ensemble(int nb ): size(nb),tete(nullptr) , courant(nullptr){}
 
 
 int Ensemble::cardinal()const{
@@ -9,9 +9,11 @@ int Ensemble::cardinal()const{
     Node* courant = tete ; 
     int count=0 ;
     while( courant!=nullptr ){
+        
         count++ ;
         courant= courant->suiv ;
     }
+   
     return count ;
 }
  //add element in Ensemble fonction   
@@ -32,7 +34,7 @@ void Ensemble::ajouter( int el ){
                 tete = newNode ;
             }
         }else
-            cout << "L'élément " << el << " est déjà présent dans l'ensemble." << std::endl;
+            cout << "L'element " << el << " est deja present dans l'ensemble." <<endl;
     }
     else 
         std::cout << "L'ensemble est plein. " ;
@@ -79,5 +81,22 @@ Ensemble::~Ensemble() {
 //delete element fonction 
 void Ensemble::supprimer(int el ){
 
+    Node* prec = tete ;
+    Node* courant = tete ;
+    
+    
+
+    while(el !=  courant->data && courant != nullptr){
+
+        prec = courant ;
+        courant = courant->suiv ;
+
+    }
+
+    if(courant){
+        
+        prec->suiv = courant->suiv ;
+        
+    }
 
 }

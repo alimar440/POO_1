@@ -24,7 +24,7 @@ public:
 
     Ensemble(int nb ) ;
     int cardinal()const ;
-   
+    
     void ajouter( int el ) ;
     void supprimer(int el ) ;
     int contient(int el)const ;
