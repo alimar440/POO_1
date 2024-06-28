@@ -10,8 +10,7 @@ Matrice* creer_matrice(int nblignes , int nbcolonnes) {
 
     for(int i = 0 ; i<nblignes ; i++){
         maMatrice->elements[i] = new float [nbcolonnes] ;
-        for(int j=0 ; j<nbcolonnes ; j++)
-            maMatrice->elements[i][j]=0 ;
+        
     }
     for(int i = 0 ; i<nblignes ; i++){
         for(int j=0 ; j<nbcolonnes ; j++)
