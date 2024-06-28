@@ -18,7 +18,7 @@ int main() {
     // Ajout de nouveaux éléments
     ensemble.ajouter(10);
     ensemble<<20;
-    ensemble<< 2 ;// Devrait indiquer que l'élément est déjà présent
+    ensemble<< 2 ; // Devrait indiquer que l'élément est déjà présent
 
     // Affichage de l'ensemble après ajout
     ensemble.printf();
@@ -26,7 +26,7 @@ int main() {
     cout << "\n\nCardinalite de l'ensemble apres ajout: " << ensemble.cardinal() << endl;
     
     // Suppression d'un élément
-  ; ensemble.supprimer(2);
+    ensemble>>2;
 
     // Affichage de l'ensemble après suppression
     cout<<"affichage apres suppresion : " ;

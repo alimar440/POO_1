@@ -121,5 +121,30 @@ Ensemble& Ensemble::operator<<(int el ){
     return *this ;
 
 }
-// Ensemble& Ensemble::operator>>(int el) ;
+ Ensemble& Ensemble::operator>>(int el) {
+
+    if(contient(el)){
+
+        if(el == tete->data){
+            tete = nullptr ;
+        }
+
+        Node* courant =tete ;
+        Node* precedant = tete ;
+
+        while(courant->data != el && courant !=nullptr){
+
+            precedant = courant ;
+            courant = courant->suiv ;
+
+        }
+        if(courant!= nullptr){
+            precedant->suiv = courant->suiv ;
+        }
+
+        
+
+    }
+    return *this ;
+ }
 // int Ensemble::operator%(int el);
