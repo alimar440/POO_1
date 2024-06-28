@@ -17,8 +17,8 @@ int main() {
 
     // Ajout de nouveaux éléments
     ensemble.ajouter(10);
-    ensemble.ajouter(20);
-    ensemble.ajouter(2); // Devrait indiquer que l'élément est déjà présent
+    ensemble<<20;
+    ensemble<< 2 ;// Devrait indiquer que l'élément est déjà présent
 
     // Affichage de l'ensemble après ajout
     ensemble.printf();

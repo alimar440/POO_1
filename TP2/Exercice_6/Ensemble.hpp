@@ -30,6 +30,10 @@ public:
     int contient(int el)const ;
     void printf()const ;
     ~Ensemble();
+    Ensemble& operator<<(int el ) ;
+    Ensemble& operator>>(int el) ;
+    int operator%(int el);
+
 
 };
 

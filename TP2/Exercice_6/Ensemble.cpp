@@ -37,7 +37,7 @@ void Ensemble::ajouter( int el ){
             cout << "L'element " << el << " est deja present dans l'ensemble." <<endl;
     }
     else 
-        std::cout << "L'ensemble est plein. " ;
+        cout << "L'ensemble est plein. " ;
 }
  
 //check in fonction
@@ -100,3 +100,26 @@ void Ensemble::supprimer(int el ){
     }
 
 }
+Ensemble& Ensemble::operator<<(int el ){
+
+
+    if (cardinal() < size) {
+        if(!contient(el)){
+
+            Node* newNode = new Node(el) ;
+            if(!tete){
+               tete = newNode ;
+            }
+            newNode->suiv= this->tete ;
+            this->tete = newNode ;
+
+        }else
+            cout << "L'element " << el << " est deja present dans l'ensemble." <<endl;
+    }else
+        cout << "L'ensemble est plein. " ;
+    
+    return *this ;
+
+}
+// Ensemble& Ensemble::operator>>(int el) ;
+// int Ensemble::operator%(int el);
