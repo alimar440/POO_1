@@ -8,13 +8,16 @@ using namespace std ;
 
 class Ensemble{
 
+    int i ;
     int size ;
+    int card ;
     int *element ;
 
 public :
 
     Ensemble(int nb ) ;
-    int cardinal()const ;
+    Ensemble(const Ensemble& ens) ;
+    int cardinal()const{ return card ;} ;
     int Esize()const{return size ;} ; 
     void ajouter( int el ) ;
     void supprimer(int el ) ;
@@ -32,9 +35,8 @@ public :
     Ensemble operator+(const Ensemble& ens ) ;
     Ensemble operator*( Ensemble& ens)   ;
 
-
-    
-
+    int init() ;
+    int exist() ;
 };
 
 #endif 

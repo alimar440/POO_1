@@ -147,4 +147,18 @@ Ensemble& Ensemble::operator<<(int el ){
     }
     return *this ;
  }
-// int Ensemble::operator%(int el);
+int Ensemble::operator%(int el){
+
+    
+     Node* newNode = tete ;
+
+    while(newNode!=nullptr){
+
+        if(el == newNode->data )
+            return 1 ;
+
+        newNode = newNode->suiv ;
+
+    }
+    return 0 ;
+}

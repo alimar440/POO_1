@@ -1,68 +1,69 @@
 #include "Ensemble.hpp"
 
 Ensemble::Ensemble(int nb ){
-
-    
+   cout<<"appel constructeur d'adresse"<<this<<endl ;
     size = nb ;
+    card = 0 ;
     element = new int[nb] ;
 
-    for (int i = 0; i < nb; i++) {
-        element[i] = 0;
-        
-        
-    }
+}
 
-  }
+
 //fonction who add an element in an ensemble 
 
     void Ensemble::ajouter( int el ) {
         
-        if( this->contient(el) == -1){
-            
-            int i=0 ;
-            while(element[i] != 0 && i<size  ){
-                i++ ;
+        if(card < size)
+        {
+            if( this->contient(el) == -1)
+            {
+        
+                    element[card] = el ;
+
+            }else
+            {
+                cout<<"l'element  "<<el <<"est das l'ensemble "<<endl ; 
             }
-            if(i!=size){
-                element[i] = el ;
-            }
-         } 
+        }else{
+            cout<<"Ensemble plein "<<endl ;
+        }
+        card++;
         
     }
 //fonction who return the number of element of an ensemble 
-    int Ensemble::cardinal()const 
-    {
-        int i = 1 ;
-        while(element[i] != 0 && i<size){
-            i++;
-        }
+    // int Ensemble::cardinal()const 
+    // {
 
-        return i+1 ;
+    //     return card ;
 
-    }
+    // }
 //fonction who delete an element in an ensemble 
     void Ensemble::supprimer(int el ) {
 
-      
-        if(this->contient(el) != -1 )
+        int p = this->contient(el) ;
+        if(p != -1 )
         {
-            int i = this->contient(el) ;
+            int i = p ;
             
-            while(element[i+1] != 0  ){
+            while( i+1 < card-1  ){
                 
                 element[i] = element[i+1] ;
                 i++ ;
 
             }
-            element[i]=0 ;
+            card--;
+        }else
+        {
+            cout<<"l'element  "<<el <<"est das l'ensemble "<<endl ; 
         }
         
     }
 //fonction who check if an element is in an ensemble 
+
     int Ensemble::contient(int el) {
 
         int i=0 ;
-        while(element[i] != 0  ){
+        while(i < card  ){
                
             if(el == element[i])    
                 return i ;
@@ -76,9 +77,9 @@ Ensemble::Ensemble(int nb ){
     void Ensemble::printf(){
         cout << "A F F I C H A G E" << endl;
         cout << "E = { ";
-        if (size > 0) {
+        if (card) {
             cout << element[0];
-            for (int i = 1; i < size; ++i) {
+            for (int i = 1; i < card; ++i) {
                 cout << " , " << element[i];
             }
         }
@@ -87,48 +88,70 @@ Ensemble::Ensemble(int nb ){
     Ensemble::~Ensemble(){
 
         delete(element) ;
-        element=nullptr ;
-        cout<<"appel de destructeur " ;
+        
+        cout<<"appel de destructeur de "<<this<<endl ;
     }
+    //copie constructor 
+Ensemble::Ensemble(const Ensemble& ens){
 
+    cout<<"appel constructeur de copie d'adresse"<<this<<endl ;
+    size = ens.size ;
+    card = ens.card ;
+    element = new int [ens.size] ;
+    
+    int i= 0 ; 
+    while( i< card  ){
+            
+        element[i]= ens.element[i] ;
+
+        i++ ;
+    } 
+    
+    
+}
 //redefinition of the fonction "ajouter" by "<<" , "supprimer " by ">>" en "contient" by "%"
 
     Ensemble& Ensemble::operator<<(int el)
     {
-        if( this->contient(el) == -1){
+        if( (*this)%(el)  == -1){
             
             int i=0 ;
-            while(this->element[i] != 0 && i<this->size  ){
+            while(i<card && card<size  ){
                 i++ ;
             }
             if(i!=this->size){
                 this->element[i] = el ;
             }
+            card++;
          } 
         return *this ;
     }
     Ensemble& Ensemble::operator>>(int el) {
+  
+           int i=0;
+              
+            while( i<card && el!= element[i]  )
+            {
 
-      
-        if(this->contient(el) != -1 )
-        {
-            int i = this->contient(el) ;
-            
-            while(this->element[i+1] != 0  ){
-                
-                this->element[i] = this->element[i+1] ;
                 i++ ;
 
             }
-            this->element[i]=0 ;
-        }
+            if(i<card){
+               for(int j= i ; j<card ; i++ ){
+                     this->element[i] = this->element[i+1] ;
+
+               }
+            }
+            card-- ;
+        
         return *this ;
     }
 
 int Ensemble::operator%(int el ) {
 
+    
     int i=0 ;
-        while(element[i] != 0  ){
+        while(i < 0  ){
                
             if(el == element[i])    
                 return 1 ;
@@ -155,12 +178,13 @@ Ensemble& Ensemble::operator=(const Ensemble& ens){
     return *this ;
 
 }
+
     
 Ensemble Ensemble::operator+(const Ensemble& ens ) {
 
     Ensemble ens1(size + ens.size) ;
     
-    for(int i = 0 ; i< ens.size ; i++){
+    for(int i = 0 ; i< ens.card ; i++){
 
         ens1.ajouter(ens.element[i]) ; 
         
@@ -182,10 +206,21 @@ Ensemble Ensemble::operator*( Ensemble& ens)  {
 
     for(int i = 0 ; i< ens.size ; i++){
 
-        if(this->element[i] != 0 && ens % element[i] )
+        if(i<card && ens % element[i] )
             ens1.ajouter(element[i]) ; 
         
     }
     return ens1 ;
 }
 
+//init , prochain and exist 
+
+int Ensemble::init(){
+    i=0 ;
+    return i ;
+}
+
+int Ensemble::exist(){
+
+    return i !=card ;
+}

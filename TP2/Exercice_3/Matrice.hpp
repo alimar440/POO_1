@@ -10,11 +10,11 @@ class Matrice{
      int **element ;
 public:
     Matrice(int r , int c) ;
-    void ~Matrice() ;
+     ~Matrice() ;
     int GetElement(int r , int c)const{return element[r][c] ; } 
     void SetElement(int r , int c , int el ) const;
     Matrice produit(const Matrice Mat ) const ;
-    printf() ;
-}
+    void printf() ;
+};
 
-#endif MATRICE_HPP
+#endif 
