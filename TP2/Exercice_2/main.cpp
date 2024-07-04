@@ -3,27 +3,40 @@
 
 int main(){
 
-    Ensemble E(6) , E1(3) ;
-    
-    E.ajouter(1) ;  E.ajouter(2) ;  E.ajouter(3) ;  E.ajouter(4) ;
+    Ensemble E(6) , E1(7)    ;
     Ensemble E2 = E ;
-    cout<<"cardinale = "<<E.cardinal()<<endl ;
 
-    E.printf() ;
-
-    if( E%5 ){
-        E.supprimer(2) ;
-    }else{
-        E.supprimer(1) ;
-        
-    }
-
-   
-    E<<5<<6;    E>>2>>3;       E.printf() ;
-
+    // E.ajouter(1) ;  E.ajouter(2) ;  E.ajouter(3) ;  E.ajouter(4) ;
     
-    E1 = E ;     E1.printf() ;
+    // cout<<"cardinale = "<<E.cardinal()<<endl ;
+    // cout<<"Ensemble apres ajout "<<endl ;       E.printf() ;
+    
+   
+    // E.supprimer(4) ;    cout<<"Ensemble apres supression "<<endl ;  E.printf() ;
 
+    // if(E1.contient(7) != -1){
+    //     cout<<"7 est dans l'ensemble "<<endl ;
+    //  }else{
+    //     cout<<"7 n'est pas dans l'ensemble "<<endl ;
+    //  }
+
+
+    //test re-definement operator
+    
+     E1<<6; E1<<3 ;  E1<<7 ; E1<<7 ;
+     
+    
+    cout<<"Ensemble apres ajout "<<endl ;       E1.printf() ; 
+
+     E1>>3 ;  E1>>7 ;    cout<<"Ensemble apres supression "<<endl ;  E1.printf() ;
+
+     if( (E1%7) ){
+        cout<<"7 est dans l'ensemble "<<endl ;
+     }else{
+        cout<<"7 n'est pas dans l'ensemble "<<endl ;
+     }
+    
+    
     
     return 0 ;
 

@@ -3,6 +3,7 @@
 //fonction who create a matrice with the number of row and colone 
 Matrice::Matrice(int r , int c) {
 
+    cout<<"APPEL CONSTRUCTEUR D'ADRESSE <<  "<<this<<"  >>" <<endl;
     row = r ;
     col = c ;
 
@@ -19,22 +20,28 @@ Matrice::Matrice(int r , int c) {
     }
 }
 
+void Matrice::saisie(){
+
+    for(int i = 0 ; i< row ; i++){
+        for(int j = 0 ; j < col ; j++)
+            this->SetElement(i,j,rand()) ;
+    }
+}
 
  Matrice::~Matrice() {
 
     for(int i=0 ; i<row ; i++)
         delete(element[i]) ;
     delete(element) ;
-    cout<<"destruction matrice " ;
+    cout<<"destruction matrice "<<endl;
 
 }
 
-void Matrice::SetElement(int r , int c , int el ) const{
+void Matrice::SetElement(int r , int c , int el ) {
 
     element[r][c]= el ;
     
 }
-Matrice produit(const Matrice Mat ) const ;
 
 void Matrice::printf() {
 
@@ -46,23 +53,72 @@ void Matrice::printf() {
             cout<<" "<<element[i][j] ;
         }
     }
+    std::cout<<"\n";
 }
 
- Matrice produit(const Matrice Mat ) const ; 
+ Matrice Matrice::produit(const Matrice Mat ) const 
 { 
- int i, j, k; 
- float **m; 
- if (p1 != n2) { 
- cout << ! Attention : produit impossible…! << endl; 
- return(NULL); 
- } 
- m = creer _matrice(n1,p2); 
- if (m) { 
- for(i=0; i<n1; i++) 
- for(j=0; j<p2; j++) 
- for(k=0; k <p1; k++) 
- m[i][j] += m1[i][k] * m2[k][j]; 
- } 
- return(m); 
+    int i, j, k; 
+    
+        if (col != Mat.row) { 
+            cout << "! Attention : produit impossible...!" << endl; 
+            exit(-1) ; 
+    } 
+    Matrice m(row , Mat.col) ;
+    if (m.element) { 
+    for(i=0; i<row; i++) 
+        for(j=0; j<Mat.col; j++) 
+            for(k=0; k <col; k++) 
+                 m.element[i][j] += element[i][k] * Mat.element[k][j]; 
+    } 
+    return m ; 
 }
 
+Matrice& Matrice::operator=(const Matrice& Mat ){
+
+    //delete space
+    for(int i = 0 ; i<row ; i++){
+        delete element[i] ;
+    }
+    delete element ;
+
+    row =Mat.row ;
+    col = Mat.col ;
+
+    //allocation dynamique  
+    element = new int*[row] ;
+
+    for(int i=0 ; i<row ; i++){
+
+        element[i]=new int[col] ;
+    }
+
+    for(int i = 0 ; i<row ; i++)
+        for(int j = 0 ; j<col ; i++){
+            element[i][j] = Mat.element[i][j] ;
+            }
+
+        return(*this) ;
+
+}
+
+Matrice::Matrice(const Matrice& Mat){
+
+    cout<<"appel constructeur de recopie "<<endl;
+    row =Mat.row ;
+    col = Mat.col ;
+
+    element = new int*[row] ;
+
+    for(int i=0 ; i<row ; i++){
+
+        element[i]=new int[col] ;
+    }
+
+    for(int i = 0 ; i<row ; i++)
+        for(int j = 0 ; j<col ; j++){
+            element[i][j] = Mat.element[i][j] ;
+            }
+
+
+}

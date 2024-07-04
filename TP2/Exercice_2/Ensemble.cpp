@@ -19,7 +19,7 @@ Ensemble::Ensemble(int nb ){
             {
         
                     element[card] = el ;
-
+                    card++;
             }else
             {
                 cout<<"l'element  "<<el <<"est das l'ensemble "<<endl ; 
@@ -27,7 +27,7 @@ Ensemble::Ensemble(int nb ){
         }else{
             cout<<"Ensemble plein "<<endl ;
         }
-        card++;
+        
         
     }
 //fonction who return the number of element of an ensemble 
@@ -111,48 +111,62 @@ Ensemble::Ensemble(const Ensemble& ens){
 }
 //redefinition of the fonction "ajouter" by "<<" , "supprimer " by ">>" en "contient" by "%"
 
-    Ensemble& Ensemble::operator<<(int el)
+Ensemble& Ensemble::operator<<(int el)
     {
-        if( (*this)%(el)  == -1){
+        
+        if(  (*this)%(el)  ){
+            cout<<"l'element  "<<el <<"est dans l'ensemble ou" <<endl ;
+        }else{
             
-            int i=0 ;
-            while(i<card && card<size  ){
-                i++ ;
-            }
-            if(i!=this->size){
-                this->element[i] = el ;
-            }
-            card++;
-         } 
+            if( card<size ){
+                element[card++] = el ;
+              
+            }else
+            {
+            cout<<" Ensemble plein "<<endl ; 
+             }
+        }
+  
         return *this ;
     }
-    Ensemble& Ensemble::operator>>(int el) {
+Ensemble& Ensemble::operator>>(int el) {
   
            int i=0;
+              
               
             while( i<card && el!= element[i]  )
             {
 
                 i++ ;
-
+               
             }
+           
             if(i<card){
-               for(int j= i ; j<card ; i++ ){
+
+               for(int j= i+1 ; j<card-1 ; j++ ){
+                   
                      this->element[i] = this->element[i+1] ;
+                   
 
                }
+                
+               card-- ;
+            }else{
+                cout<<"element pas trouve"<<endl ;
             }
-            card-- ;
+            
         
         return *this ;
+
+        
     }
 
 int Ensemble::operator%(int el ) {
 
     
     int i=0 ;
-        while(i < 0  ){
-               
+        while(i < card  ){
+
             if(el == element[i])    
                 return 1 ;
             i++ ;
@@ -215,12 +229,17 @@ Ensemble Ensemble::operator*( Ensemble& ens)  {
 
 //init , prochain and exist 
 
-int Ensemble::init(){
+void Ensemble::init(){
     i=0 ;
-    return i ;
+   
 }
 
 int Ensemble::exist(){
 
-    return i !=card ;
+    return i != card ;
+}
+int Ensemble::prochain(){
+
+    return element[i++] ;
+
 }

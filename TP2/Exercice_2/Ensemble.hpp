@@ -27,16 +27,17 @@ public :
 
  //redefinition of the fonction "ajouter" by "<<" , "supprimer " by ">>" en "contient" by "%"
 
-     Ensemble& operator<<(int el) ;
-     Ensemble& operator>>(int el) ;
+    Ensemble& operator<<(int el) ;
+    Ensemble& operator>>(int el) ;
     int operator%(int el ) ;
     Ensemble& operator=(const Ensemble& ens) ;
 
     Ensemble operator+(const Ensemble& ens ) ;
     Ensemble operator*( Ensemble& ens)   ;
 
-    int init() ;
+    void init() ;
     int exist() ;
+    int prochain() ;
 };
 
 #endif 

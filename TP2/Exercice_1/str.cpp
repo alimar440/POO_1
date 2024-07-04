@@ -8,7 +8,7 @@ str::str(){
     word = nullptr ;
 }
 
-str::str(const char* strstr){
+str::str(const char* strstr)const{
 
    size = strlen(strstr) ;
 
@@ -18,9 +18,7 @@ str::str(const char* strstr){
 
 
 }
-str::str(const str& strstr) {
-
-   \
+str::str(const str& strstr)const {
 
     size = strstr.size ;
     word = new char [strstr.size] ;

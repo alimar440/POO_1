@@ -20,10 +20,10 @@ class str{
         str(const str& strstr) ;
     //les sur-definitions d'operateur 
 
-        str& operator=(str& strstr ) ;
-        int operator==(str& strstr ) ; 
-        str operator+(const str& strstr ) ;
-        char& operator[](int i ) ;
+        str& operator=(const str& strstr ) ;
+        int operator==(sonst str& strstr ) const; 
+        str operator+(const str& strstr ) const ;
+        char& operator[](int i ) const ;
 
     //affihage
         void printf() const {
