@@ -9,6 +9,7 @@ Ensemble::Ensemble(int nb ){
 }
 
 
+
 //fonction who add an element in an ensemble 
 
     void Ensemble::ajouter( int el ) {
@@ -242,4 +243,14 @@ int Ensemble::prochain(){
 
     return element[i++] ;
 
+}
+
+int Ensemble::somme(){ 
+        int S = 0 ; 
+        init() ; 
+        while(exist()){
+
+            S += prochain() ;
+        }
+        return S ;
 }

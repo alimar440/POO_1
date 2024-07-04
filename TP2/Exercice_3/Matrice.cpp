@@ -122,3 +122,9 @@ Matrice::Matrice(const Matrice& Mat){
 
 
 }
+
+int* Matrice::operator[](int i ){
+
+    return element[i] ;
+    
+}

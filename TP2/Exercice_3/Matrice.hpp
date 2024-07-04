@@ -16,9 +16,20 @@ public:
     void SetElement(int r , int c , int el ) ;
     Matrice produit(const Matrice Mat ) const ;
     Matrice& operator=(const Matrice& Mat ) ;
-    int operator[](int )
+    int* operator[](int i ) ;
     void saisie() ;
     void printf() ;
 };
 
 #endif 
+
+
+ // Overloading operator[] to return a reference to a row
+    // int* operator[](int i) {
+    //     return element[i];
+    // }
+
+    // // Overloading operator[] to return a const reference to a row (for const objects)
+    // const int* operator[](int i) const {
+    //     return element[i];
+    // }

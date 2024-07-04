@@ -38,6 +38,8 @@ public :
     void init() ;
     int exist() ;
     int prochain() ;
+    
+    int somme() ;
 };
 
 #endif 
