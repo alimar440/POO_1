@@ -254,3 +254,11 @@ int Ensemble::somme(){
         }
         return S ;
 }
+
+
+void Ensemble::affiche_element(int a){
+
+    cout<<a ; 
+    
+}
+
