@@ -30,7 +30,7 @@ public :
     ~Ensemble();
 
 
-
+    friend Ensemble suppell(Ensemble E) ;
 
  //redefinition of the fonction "ajouter" by "<<" , "supprimer " by ">>" en "contient" by "%"
 

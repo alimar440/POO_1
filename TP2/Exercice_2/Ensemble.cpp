@@ -255,6 +255,12 @@ int Ensemble::somme(){
         return S ;
 }
 
+Ensemble suppell(Ensemble E){
+   Ensemble E1 = E ;
+   cout<<"1ERE TEST"<<endl ;
+   return E ;
+}
+
 
 void Ensemble::affiche_element(int a){
 
