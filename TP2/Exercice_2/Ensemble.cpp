@@ -256,7 +256,7 @@ int Ensemble::somme(){
 }
 
 Ensemble suppell(Ensemble E){
-   Ensemble E1 = E ;
+   //Ensemble E1 = E ;
    cout<<"1ERE TEST"<<endl ;
    return E ;
 }

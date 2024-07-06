@@ -21,8 +21,7 @@ int main(){
      }
 
 
-    suppell(E) ;
-    
+    Ensemble E3 = suppell(E) ;
 
     
     return 0 ;
