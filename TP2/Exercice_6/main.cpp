@@ -3,13 +3,13 @@
 int main() {
 
     Ensemble ensemble(10);
-
+    
     
     // Ajout d'éléments à la liste
     ensemble.ajouter(1);
     ensemble.ajouter(2);
     ensemble.ajouter(3);
-    
+    Ensemble E1 = ensemble ;
 
     // Affichage de l'ensemble initial
     ensemble.printf();
@@ -17,8 +17,8 @@ int main() {
 
     // Ajout de nouveaux éléments
     ensemble.ajouter(10);
-    ensemble<<20;
-    ensemble<< 2 ; // Devrait indiquer que l'élément est déjà présent
+    ensemble.ajouter(20);
+    ensemble.ajouter(2) ; // Devrait indiquer que l'élément est déjà présent
 
     // Affichage de l'ensemble après ajout
     ensemble.printf();
@@ -26,7 +26,7 @@ int main() {
     cout << "\n\nCardinalite de l'ensemble apres ajout: " << ensemble.cardinal() << endl;
     
     // Suppression d'un élément
-    ensemble>>2;
+    ensemble.supprimer(2);
 
     // Affichage de l'ensemble après suppression
     cout<<"affichage apres suppresion : " ;

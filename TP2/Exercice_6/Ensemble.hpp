@@ -23,6 +23,7 @@ class Ensemble{
 public:
 
     Ensemble(int nb ) ;
+    Ensemble(Ensemble& ens ) ;
     int cardinal()const ;
     
     void ajouter( int el ) ;

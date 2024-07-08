@@ -1,9 +1,29 @@
 #include"Ensemble.hpp"
 
 //constructor for inicialize the class 
-Ensemble::Ensemble(int nb ): size(nb),tete(nullptr) , courant(nullptr){}
+Ensemble::Ensemble(int nb ): size(nb),tete(nullptr) , courant(nullptr){
 
+    cout<<"appel constructeur d'adresse "<<this<<endl ;
+    
+}
 
+Ensemble::Ensemble(Ensemble& ens ) : size(ens.size) , tete(nullptr), courant(nullptr)  {
+    cout<<"appel constructeur de copie d'adresse  "<<this<<endl ;
+    if(ens.tete){
+
+        tete = new Node(ens.tete->data) ;
+        courant = tete ;
+        ens.courant = ens.tete->suiv ;
+
+        while(courant->suiv ){
+            courant->suiv = new Node(ens.courant->data) ;
+            courant = courant->suiv ;
+            ens.courant = ens.courant->suiv ;
+
+        }
+    }
+
+}
 int Ensemble::cardinal()const{
 
     Node* courant = tete ; 
@@ -76,15 +96,14 @@ Ensemble::~Ensemble() {
         tete = tete->suiv;
         delete temp;
     }
+    cout<<"appel destructeur"<<endl ;
 }
 
 //delete element fonction 
 void Ensemble::supprimer(int el ){
 
     Node* prec = tete ;
-    Node* courant = tete ;
-    
-    
+    courant = tete ;
 
     while(el !=  courant->data && courant != nullptr){
 
@@ -129,7 +148,7 @@ Ensemble& Ensemble::operator<<(int el ){
             tete = nullptr ;
         }
 
-        Node* courant =tete ;
+        courant =tete ;
         Node* precedant = tete ;
 
         while(courant->data != el && courant !=nullptr){
