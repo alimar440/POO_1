@@ -8,8 +8,9 @@ struct Pile_elt{
     int data ;
     Pile_elt *suiv ;
 
-    Pile_elt(int d): date(d) , suiv(nullptr) {}
+    Pile_elt(int d): data(d) , suiv(nullptr) {} ;
 } ;
+
 
 class Pile {
 
@@ -17,4 +18,13 @@ class Pile {
     public: 
 
         Pile() ;
+        ~Pile() ;
+        Pile(Pile& P) ;
+        void Empiler(int el) ;
+        void Depiler() ;
+        int Sommet() ;
+        bool Est_vide() const ;
+        friend void printf( Pile ens) ;
 } ;
+
+#endif

@@ -18,6 +18,10 @@ int main(){
 
     Matrice M3 = M1.produit(M2) ;
 
+    M1.printf() ;
+
+    M1[1][2] = 0 ;
+
     cout<<"resultat produit matriciel"<<endl ; M3.printf() ;
 
     M1.printf() ;

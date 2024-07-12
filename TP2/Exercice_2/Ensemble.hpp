@@ -12,7 +12,6 @@ using namespace std ;
 
 class Ensemble{
 
-    int i ;
     int size ;
     int card ;
     int *element ;
@@ -32,30 +31,6 @@ public :
 
     friend Ensemble suppell(Ensemble E) ;
 
- //redefinition of the fonction "ajouter" by "<<" , "supprimer " by ">>" en "contient" by "%"
-
-
-
-
-
-
-
-    Ensemble& operator<<(int el) ;
-    Ensemble& operator>>(int el) ;
-    int operator%(int el ) ;
-    Ensemble& operator=(const Ensemble& ens) ;
-    friend void que_des_paire(Ensemble ens);
-    Ensemble operator+(const Ensemble& ens ) ;
-    Ensemble operator*( Ensemble& ens)   ;
-
-    void init() ;
-    int exist() ;
-    
-    int prochain() ;
-    
-    int somme() ;
-    void (*traiter)(int a) ;
-    void affiche_element(int a) ;
 };
 
 #endif 
