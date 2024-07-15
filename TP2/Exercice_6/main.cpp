@@ -4,7 +4,7 @@ int main() {
 
     Ensemble ensemble(10);
     
-    
+     
     // Ajout d'éléments à la liste
     ensemble.ajouter(1);
     ensemble.ajouter(2);
@@ -40,6 +40,7 @@ int main() {
         cout << "\nL'ensemble contient l'element " << element << endl;
     } else {
         cout << "\nL'ensemble ne contient pas l'element " << element <<endl;
+      
     }
 
     return 0;
