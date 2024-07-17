@@ -3,10 +3,10 @@
 
 int main(){
 
-    File P(6) ;
+    File P(7) ;
     //Filee P2 = P ;
     
-    cout<<"enFiler"<<endl ;
+    cout<<"apres enFiler"<<endl ;
     P.EnFiler(7) ;
     P.EnFiler(1) ;
     P.EnFiler(3) ;
@@ -17,7 +17,7 @@ int main(){
 
     printf(P) ;
 
-    cout<<"deFiler"<<endl ;
+    cout<<"apres deFiler"<<endl ;
     P.DeFiler() ;
     printf(P) ;
 

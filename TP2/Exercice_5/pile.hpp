@@ -1,30 +1,31 @@
-#ifndef PILE_HPP
-#define PILE_HPP
+#ifndef File_HPP
+#define File_HPP
 
 using namespace std ;
 #include <iostream> 
 
-struct Pile_elt{
+struct File_elt{
     int data ;
-    Pile_elt *suiv ;
+    File_elt *suiv ;
 
-    Pile_elt(int d): data(d) , suiv(nullptr) {} ;
+    File_elt(int d): data(d) , suiv(nullptr) {} ;
 } ;
 
 
-class Pile {
+class File {
 
-        Pile_elt *head ;
+        File_elt *tete ;
+        File_elt *queue ;
     public: 
 
-        Pile() ;
-        ~Pile() ;
-        Pile(Pile& P) ;
-        void Empiler(int el) ;
-        void Depiler() ;
-        int Sommet() ;
+        File() ;
+        ~File() ;
+        File(File& P) ;
+        void EmFiler(int el) ;
+        void DeFiler() ;
+        int Sommet() { return tete->data ;} ;
         bool Est_vide() const ;
-        friend void printf( Pile ens) ;
+        friend void printf( File ens) ;
 } ;
 
 #endif

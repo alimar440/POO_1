@@ -1,53 +1,71 @@
-#include "pile.hpp"
+#include "File.hpp"
 
 
-Pile::Pile():head(nullptr){ 
+File::File():tete(nullptr){ 
     cout<<"appel constructeur d'adresse "<<this<<endl ;
 } 
-Pile::Pile(Pile& P){
+File::File(File& P){
      cout<<"appel constructeur de copie d'adresse "<<this<<endl ;
-    if(P.head){
-        head = new Pile_elt(P.head->data) ;
-        Pile_elt* courant1 ; courant1= head ;
-        Pile_elt* courant2 ; courant2 = P.head->suiv ;
+    if(P.tete){
+        tete = new File_elt(P.tete->data) ;
+        File_elt* courant1 ; courant1= tete ;
+        File_elt* courant2 ; courant2 = P.tete->suiv ;
         while( courant2 ){
-            courant1->suiv = new Pile_elt(courant2->data) ;
+            courant1->suiv = new File_elt(courant2->data) ;
             courant1 = courant1->suiv ;
             courant2 = courant2->suiv ;
 
         }
     }
 }
-Pile::~Pile() {
-    delete(head) ;
+File::~File() {
+    while(!Est_vide()){
+        DeFiler() ;
+    }
     cout<<"appel du destructeur"<<endl;
  }
 
-void Pile::Empiler(int el){
+void File::EnFiler(int el){
+    if (Est_vide()) {
+            cout << "La file est vide." << endl;
+            return;
+        }
 
-    Pile_elt *node = new Pile_elt(el) ;
-    node->suiv = head ;
-    head = node ;
-}
-void Pile::Depiler() {
+    File_elt *node = new File_elt(el) ;
 
-    if(head){
-        head = head->suiv ;
+    if(tete == nullptr){
+        tete = queue = node ;
+    }else{
+
+        queue->suiv = node ;
+        queue = queue->suiv ;
     }
+
 }
-int Pile::Sommet() {
-    return head->data ;
+void File::DeFiler() {
+    
+      File_elt* newnode = tete ;
+       tete = tete->suiv ;
+       if (tete == nullptr) {
+            queue = nullptr;
+        }
+
+    delete newnode ;
+
 }
-bool Pile::Est_vide() const{
-    return (head == nullptr)? true : false ;
+int File::Sommet() {
+    return tete->data ;
 }
-void printf(Pile ens )  {
+bool File::Est_vide() const{
+    return (tete == nullptr)? true : false ;
+}
+void printf(File ens )  {
 
     
         
         while(ens.Est_vide() == false){
             cout<<"("<<ens.Sommet()<<")-->" ;
-            ens.Depiler() ;
+            ens.DeFiler() ;
         }
 
         cout<<"NULL"<<endl ;

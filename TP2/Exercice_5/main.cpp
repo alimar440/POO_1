@@ -1,19 +1,19 @@
-#include "pile.hpp"
+#include "File.hpp"
 
 int main(){
 
-    Pile P ;
-    Pile P2 = P ;
+    File P ;
+    File P2 = P ;
     
-    P.Empiler(7) ;
-    P.Empiler(1) ;
-    P.Empiler(2) ;
-    P.Empiler(4) ;
-    cout<<"empiler"<<endl ;
+    P.EnFiler(7) ;
+    P.EnFiler(1) ;
+    P.EnFiler(2) ;
+    P.EnFiler(4) ;
+    cout<<"emFiler"<<endl ;
 
     printf(P) ;
-    cout<<"depiler"<<endl ;
-    P.Depiler() ;
+    cout<<"deFiler"<<endl ;
+    P.DeFiler() ;
     printf(P) ;
 
 }

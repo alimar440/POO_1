@@ -2,8 +2,10 @@
 
 
 File::File(int nb){
-    cout<<"Appel constructeur d'adresse"<<this<<endl ;
+    // cout<<"Appel constructeur d'adresse"<<this<<endl ;
     maxsize = nb ;
+    queue = 0 ;
+    tete = 0 ;
     size = 0 ;
     Tab = new int[nb] ;
    
@@ -13,21 +15,25 @@ File::File(int nb){
 
 void printf(File ens){
     cout<<"A F F I C H A G E "<<endl ;
+    
     while(ens.Est_vide()== false){
             cout<<"("<<ens.Sommet()<<")-->" ;
             ens.DeFiler() ;
         }
+        cout<<endl ;
 }
 
 File::~File(){
-        cout<<"Appel du destructeur"<<endl;
+        // cout<<"Appel du destructeur"<<endl;
         delete Tab ;
     }
 
 File::File(File& P){
-    cout<<"appel constructeur de copie d'adresse"<<this<<endl ;
+    // cout<<"appel constructeur de copie d'adresse"<<this<<endl ;
     maxsize = P.maxsize ;
-    size = 0 ;
+    queue = 0 ;
+    tete = 0 ;
+    size = 0 ; 
     Tab = new int(maxsize) ;
     File myfile(P.maxsize) ;
     
@@ -46,30 +52,45 @@ File::File(File& P){
     }
 
    
+
 }
 
-
-void File::EnFiler(int el){
-
-    
-
-    if(size < maxsize){
-        
-        Tab[size++]=el ;
-
+void File::EnFiler(int el) {
+    if (size == maxsize) {
+        cout << "File est pleine!" << endl;
+        return;
     }
-} ;
-void File::DeFiler(){
+    Tab[queue] = el;
+    queue = (queue + 1) % maxsize;
+    size++;
+}
 
-    int i = 0 ;
-    while(i<size-1){
-        Tab[i]=Tab[i+1] ;
-        i++;
+void File::DeFiler() {
+    if (Est_vide()) {
+        cout << "File est vide!" << endl;
+        return;
     }
+    tete = (tete + 1) % maxsize;
     size--;
-    
 }
 
+// void File::EnFiler(int el){
+
+//     if(queue < maxsize){
+            
+//             Tab[queue++]=el ;
+           
+
+//         }
+// } ;
+// void File::DeFiler(){
+
+//     if(tete<queue){
+//         tete++ ;
+//         cout<<"tete"<<tete<<endl;
+//         cout<<"queue :"<<queue<<endl;
+//     }   
+// }
 
 
 
