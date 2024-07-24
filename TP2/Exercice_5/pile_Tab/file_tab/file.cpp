@@ -2,7 +2,7 @@
 
 
 File::File(int nb){
-    // cout<<"Appel constructeur d'adresse"<<this<<endl ;
+    cout<<"Appel constructeur d'adresse"<<this<<endl ;
     maxsize = nb ;
     queue = 0 ;
     tete = 0 ;
@@ -74,7 +74,6 @@ void File::DeFiler() {
     size--;
 }
 
-
 File File::operator=(File& F){
     delete[] Tab ;
     maxsize = F.maxsize ;
@@ -98,3 +97,32 @@ File File::operator=(File& F){
     return (*this) ;
 
 }
+File& File::operator<<(int el) {
+    if (size == maxsize) {
+        cout << "File est pleine!" << endl;
+        return *this ;
+    }
+    Tab[queue] = el;
+    queue = (queue + 1) % maxsize;
+    size++;
+    
+    return *this ;
+}
+File& File::operator>>(int el){
+    int n = el ;
+
+     if (Est_vide()) {
+        cout << "File est vide!" << endl;
+        return *this;
+    }
+    tete = (tete+1) % maxsize;
+    size--;
+    return *this ;
+}
+
+
+
+
+
+
+

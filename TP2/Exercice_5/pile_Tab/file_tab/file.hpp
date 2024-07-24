@@ -10,6 +10,52 @@ class File{
         int tete ;
         int queue ;
     public:
+        
+        friend void printf( File ens) ;
+        File operator=(File& ) ;
+        File& operator<<(int el) ;
+        File& operator>>(int el);
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //=======================================
         File(int nb);
        ~File();
         File(File& P) ;
@@ -17,9 +63,8 @@ class File{
         void DeFiler() ;
         int Sommet(){return Tab[tete] ;} ;
         bool Est_vide() const { return( tete==queue ? true : false );} ;
-        friend void printf( File ens) ;
-        File operator=(File& ) ;
-        
-        
         
 };
+
+
+

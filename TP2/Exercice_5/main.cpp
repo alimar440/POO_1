@@ -1,4 +1,4 @@
-#include "File.hpp"
+#include "pile.hpp"
 
 int main(){
 
@@ -9,6 +9,7 @@ int main(){
     P.EnFiler(1) ;
     P.EnFiler(2) ;
     P.EnFiler(4) ;
+    P>>7;
     cout<<"emFiler"<<endl ;
 
     printf(P) ;

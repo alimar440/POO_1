@@ -1,31 +1,24 @@
 #include "File.hpp"
 
 
-
 int main(){
 
     File P(10) ;
-    
+    //Filee P2 = P ;
     
     cout<<"apres enFiler"<<endl ;
-    P.EnFiler(7) ;
-    P.EnFiler(1) ;
-    P.EnFiler(3) ;
-    P.EnFiler(4) ;
-    P.EnFiler(6) ;
-
-   File P2 = P ;
-
-   P2.EnFiler(10) ;
-
-   Fi
+    
+    P<<6 ;
+    P<<4 ;
+    P<<10 ;
+    P<<12;
 
 
 
     printf(P) ;
 
     cout<<"apres deFiler"<<endl ;
-    
+    P>>1 ;
     printf(P) ;
 
     

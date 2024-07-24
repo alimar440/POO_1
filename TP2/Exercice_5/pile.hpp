@@ -21,11 +21,18 @@ class File {
         File() ;
         ~File() ;
         File(File& P) ;
-        void EmFiler(int el) ;
+        void EnFiler(int el) ;
         void DeFiler() ;
         int Sommet() { return tete->data ;} ;
         bool Est_vide() const ;
         friend void printf( File ens) ;
+
+
+
+        //--------------------------------------------
+        File operator=(File& ) ;
+        File& operator<<(int el) ;
+        File& operator>>(int el);
 } ;
 
 #endif

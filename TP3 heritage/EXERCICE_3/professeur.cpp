@@ -1,7 +1,8 @@
 #include "professeur.cpp" 
 
 Professeur::Professeur(char* a,char* b,char* c):Salarie(a,b){
-
+    diplome = new char[strlen(c) +1 ] ;
+    
 }
 void Professeur::afficheProfesseur() {
     afficheSalarie();

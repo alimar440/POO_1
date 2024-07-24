@@ -9,6 +9,11 @@ Salarie::Salarie(char*a ,char* b) {
     strcpy(prenom,a) ;
     strcpy(nom,b)
 }
+
+Salarie::~Salarie(){
+    delete[] nom ;
+    delete[] prenom ;
+}
 void Salarie::afficheSalarie(){
-    cout<<"Prenom :  "<<Prenom<<"Nom :  "<<nom ;
+    cout<<"Prenom :  "<<Prenom<<"Nom :  "<<nom<<endl ;
 }
