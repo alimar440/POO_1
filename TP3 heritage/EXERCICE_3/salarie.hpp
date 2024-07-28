@@ -2,17 +2,20 @@
 #define SALARIE_HPP
 
 #include <iostream> 
+#include <String> 
 using namespace std ;
-
+#include <cstring> 
 class Salarie{
         char* nom ;
         char* prenom ;
     public :
         Salarie(char*,char*) ;
-        ~Salarie() { delete nom ; delete prenom ;}
-        char* getPrenom(){return prenom ;}
-        char* getNom(){return nom ;}
-        void afficheSalarie() ;
+        Salarie(const Salarie& S) ;
+       virtual ~Salarie() ;
+        char* getPrenom(){return prenom ;};
+        char* getNom(){return nom ;} ;
+        virtual void affiche();
+       virtual Salarie& operator=( Salarie&) ;
 };
 
 
