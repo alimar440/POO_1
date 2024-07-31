@@ -72,12 +72,12 @@ int main(){
   cout<<"-------------------------------------T Y P A  E  STATIQUE-----------------\n\n\n "<<endl ;
 
 
-  Salarie S(ali,nom) ;
-  Administrateur A(ali , ndiaye , recteur) ;
+  // Salarie S(ali,nom) ;
+  Professeur P(ali , ndiaye , recteur) ;
 
-  S = A ;
 
-  S.affiche() ;
+
+ 
     
     return 0 ;
 }
