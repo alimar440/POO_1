@@ -17,7 +17,6 @@ int main() {
     char design4[] = "Camera";
     char design5[] = "Chair";
     
-   
     Article* article1 = new ArticleImporter(101, design1, 1000, 15); 
     Article* article2 = new ArticleImporter(102, design4, 700, 20); 
     
