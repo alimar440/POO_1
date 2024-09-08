@@ -35,4 +35,4 @@ L'épreuve consiste à :
 Pour compiler tous les fichiers, utilisez la commande suivante dans votre terminal :
 
 ```bash
-g++ -o *.cpp start 
+g++ *.cpp -o start 
