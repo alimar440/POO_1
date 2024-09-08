@@ -1,32 +1,38 @@
-# Gestion de Stock - Magasin
+# Épreuve de Programmation Orientée Objet (POO) - Examen 2021-2022
 
-Ce projet est une simulation simple de gestion de stock dans un magasin. Le magasin peut gérer deux types d'articles : des articles importés et des articles locaux. Chaque article a une référence, une désignation et un prix d'achat, avec des spécificités supplémentaires pour les articles importés (taxe d'importation) et locaux (coût de transport).
+Ce dépôt contient les fichiers sources pour l'épreuve de programmation orientée objet (POO) de l'examen de la session 2021-2022 à l'Université Gaston Berger de Saint-Louis.
 
-## Fonctionnalités
+## Objectif
 
-- **Création d'articles** : Créez des articles importés et locaux avec des informations spécifiques.
-- **Ajout d'articles au magasin** : Ajoutez des articles au stock du magasin.
-- **Affichage des articles** : Affichez tous les articles du magasin avec leurs détails spécifiques.
-- **Polymorphisme** : Le projet démontre l'utilisation du polymorphisme pour manipuler les articles dans le magasin de manière uniforme.
+L'objectif de cette épreuve est de mettre en pratique les concepts de la programmation orientée objet, notamment l'héritage, le polymorphisme et la gestion dynamique de la mémoire en C++. Le contexte de l'exercice est une simulation simplifiée de gestion de stock d'un magasin.
 
-## Structure du projet
+## Contenu
 
-- `Article.h` et `Article.cpp` : Définition de la classe de base `Article`.
-- `ArticleImporter.h` et `ArticleImporter.cpp` : Classe dérivée `ArticleImporter` pour les articles importés.
-- `ArticleLocal.h` et `ArticleLocal.cpp` : Classe dérivée `ArticleLocal` pour les articles locaux.
-- `Magasin.h` et `Magasin.cpp` : Classe `Magasin` pour gérer le stock d'articles.
-- `main.cpp` : Fichier principal contenant la fonction `main()` pour exécuter le programme.
+Le dépôt contient les fichiers suivants :
 
-## Installation et compilation
+- `Article.h` et `Article.cpp` : Classe de base représentant un article générique dans le magasin.
+- `ArticleImporte.h` et `ArticleImporte.cpp` : Classe dérivée représentant un article importé avec une taxe d'importation.
+- `ArticleLocal.h` et `ArticleLocal.cpp` : Classe dérivée représentant un article local avec un coût de transport.
+- `Magasin.h` et `Magasin.cpp` : Classe `Magasin` qui gère un stock d'articles (importés et locaux).
+- `main.cpp` : Fichier principal pour tester le fonctionnement des classes et simuler un magasin.
+
+## Instructions pour l'examen
+
+L'épreuve consiste à :
+
+1. Créer et gérer des articles locaux et importés dans un magasin.
+2. Utiliser les mécanismes de l'héritage et du polymorphisme pour permettre la gestion uniforme des articles.
+3. Afficher les informations spécifiques à chaque type d'article dans le magasin.
+
+## Compilation et exécution
 
 ### Prérequis
 
-- Un compilateur C++ (par exemple, `g++` sous Linux/Mac ou MinGW sous Windows)
-- Un terminal ou un environnement de développement intégré (IDE) tel que Visual Studio Code, CLion, ou Code::Blocks.
+- Un compilateur C++ tel que `g++`.
 
 ### Compilation
 
-Pour compiler le projet, ouvrez un terminal dans le répertoire du projet et exécutez la commande suivante :
+Pour compiler tous les fichiers, utilisez la commande suivante dans votre terminal :
 
 ```bash
-g++ -o start main.cpp Article.cpp ArticleImporter.cpp ArticleLocal.cpp Magasin.cpp
+g++ -o *.cpp start 
