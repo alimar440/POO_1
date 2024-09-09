@@ -19,7 +19,12 @@ void Magasin::ajouter(Article* art){
     while(stock[i] != nullptr){
         i++ ;
     }
-    stock[i] = art ;
+
+    if(i<max_size){
+         stock[i] = art ;
+    }else{
+        cout<<"plein !";
+    }
 
 }
 
