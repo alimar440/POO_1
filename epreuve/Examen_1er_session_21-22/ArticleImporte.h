@@ -26,6 +26,8 @@ public:
 
     int getPriceSold (){ return (40 * taxeImportation )/100 + this->getBuyPrice() ; } ;
 
+   
+
 };
 
 #endif

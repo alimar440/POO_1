@@ -26,6 +26,7 @@ public:
 
     int getPriceSold (){ return coutTransport + this->getBuyPrice() ; } ;
 
+   
 };
 
 #endif

@@ -22,6 +22,11 @@ public:
     Article& operator=(const Article& other);
 
     int getBuyPrice(){ return prixAchat ; } ;
+
+    int getReferance(){ return referance ;} ;
+
+    char* getDesignation (){ return designation ; } ;
+
 };
 
 #endif
