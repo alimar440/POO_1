@@ -23,16 +23,3 @@ L'épreuve consiste à :
 1. Créer et gérer des articles locaux et importés dans un magasin.
 2. Utiliser les mécanismes de l'héritage et du polymorphisme pour permettre la gestion uniforme des articles.
 3. Afficher les informations spécifiques à chaque type d'article dans le magasin.
-
-## Compilation et exécution
-
-### Prérequis
-
-- Un compilateur C++ tel que `g++`.
-
-### Compilation
-
-Pour compiler tous les fichiers, utilisez la commande suivante dans votre terminal :
-
-```bash
-g++ *.cpp -o start 
