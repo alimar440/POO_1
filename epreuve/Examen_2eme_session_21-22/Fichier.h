@@ -5,15 +5,8 @@ using namespace std ;
 
 #include <iostream>
 
-class objet { 
-         int val ;
-    public :
-        objet(int valeur) : val(valeur){ cout<<"Appel construteur d'adresse :"<<this<<endl ; } ;
-        ~objet(){  cout<<"Appel destructeur d'adresse :"<<this<<endl ; } ;
-        int getValeur(){return val ; } ;
+#include "objet.h"
 
-        void affiche () { cout<< "valeur :"<<val<<endl ;  } ;
-};
 
 struct Node {
 
@@ -21,6 +14,7 @@ struct Node {
     Node* suivant ;
 
     Node(objet* obj ) : data(obj) { suivant = nullptr ;} ;
+
 };
 
 class Liste{
@@ -37,7 +31,7 @@ class Liste{
 
         void afficher() const  ;
 
-        ~Liste() ;
+        virtual ~Liste() ;
 
 };
 #endif
