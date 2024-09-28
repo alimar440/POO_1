@@ -11,7 +11,7 @@ class BoiteAuLettre{
         Courriers ** couriers ;
     public : 
         BoiteAuLettre( char* n ,int V , int H , int M ) ;
-        ~BoiteAuLettre() ;
+        virtual ~BoiteAuLettre() ;
         void ajoute(Courriers *C ) ; 
         void affiche() ;
 };
