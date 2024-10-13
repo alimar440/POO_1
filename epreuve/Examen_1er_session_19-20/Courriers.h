@@ -17,7 +17,7 @@ class Courriers{
         char* adresseDestination ;
     public :
         Courriers (int P , modeEXP M , char* Exp , char* Dest  ) ;
-        virtual ~Courriers() ; 
+        ~Courriers() ; 
         void virtual affiche() ;
         int virtual PRIX() = 0 ;
 

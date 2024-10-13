@@ -9,6 +9,7 @@ BoiteAuLettre::BoiteAuLettre( char* n ,int V , int H , int M ):max(M) , volumeBo
 
  BoiteAuLettre::~BoiteAuLettre(){
             if(couriers) delete [] couriers;
+                
                 cout<<"Appel du destructeur !"<<endl;
         }
 
