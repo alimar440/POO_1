@@ -13,15 +13,19 @@ class personne {
 
     public :
 
-        personne( const string& a ,const string& b int c) : nom(a) , adresse(b) , anneeEmbouche(c) {} ;
+        personne( const string& a ,const string& b , int c) : nom(a) , adresse(b) , anneeEmbouche(c)
+        {cout<<"appel constructeur PERS \n" ;} ;
         virtual ostream& affiche(ostream& out) const {
             out << "    nom : "<<nom 
                 <<" \nadresse : "<<adresse
                 <<"   \nannee : "<<anneeEmbouche<<endl ; 
              return out ;   
                 
-        }
-        friend ostream% operator<<(ostream& out , personne& )
+        } ;
+        friend ostream& operator<<(ostream& out ,const personne& pers) {
+
+            return pers.affiche(out) ;
+        } ;
 
 };
 

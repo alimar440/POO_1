@@ -9,10 +9,13 @@ class personnel : public personne
         bool bureau ; 
         int salaire ;
     public : 
-        personnel(const string& n , const string& ad , int an , int sal) : personne(n,ad,a ) , salaire(sal), bureau(true) {} ;
+        personnel(const string& n , const string& ad , int an , int sal) : personne(n,ad,an ) , salaire(sal), bureau(true) 
+        {cout<<"appel constructeur personnel \n" ;} ;
         ostream& affiche(ostream& out){
             personne::affiche(out) ;
-            out<<"     bureau: "<<bureau
-                <<"   salaire :"<<endl ;
+            out<<"     bureau : "<<bureau
+                <<"   salaire :"<<salaire<<endl ;
         };
 };
+
+#endif ;
