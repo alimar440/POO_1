@@ -10,7 +10,7 @@ class admin : public personnel
 
         admin(const string& no , const string& adr , int an , int sal ,const string& pos) : personnel(no,adr,an,sal),poste(pos)
         {cout<<"appel constructeur administratif " ;} ;
-        ostream& affiche(ostream& out ){
+        ostream& affiche(ostream& out )const{
             personnel::affiche(out) ;
             out << "   post : "<<endl ;
             return out ;

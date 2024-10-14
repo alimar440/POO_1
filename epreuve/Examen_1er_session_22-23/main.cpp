@@ -13,11 +13,20 @@ int main(){
     enseignant e1("ali", "sanar" ,  2022 ,"qwddfdd",48, 5000) ;
 
     Ins.ajout(&p);
+   // cout<<"qqqqqqqqqqq";
     Ins.ajout(&a);
     Ins.ajout(&e);
     Ins.ajout(&e1);
 
     Ins.affiche() ;
+
+    personnel* pers = dynamic_cast<personnel*>(&p) ;
+
+    if(pers){
+        cout<<"personneeeeeeeeeeeeeeeee";
+    
+    }else 
+        cout<<"PASSSSSSSSSSSSSSSS    personneeeeeeeeeeeeeeeee";
 
 
     
