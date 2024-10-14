@@ -13,7 +13,6 @@ int main(){
     enseignant e1("ali", "sanar" ,  2022 ,"qwddfdd",48, 5000) ;
 
     Ins.ajout(&p);
-   // cout<<"qqqqqqqqqqq";
     Ins.ajout(&a);
     Ins.ajout(&e);
     Ins.ajout(&e1);
