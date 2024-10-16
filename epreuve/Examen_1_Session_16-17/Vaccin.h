@@ -27,11 +27,11 @@ class Vaccin {
 
         Vaccin(char* , double , int , Fabrication F = Standard)  ;
         double  conditionnement(){ return nombreDose * volumeDose * COND_UNITE ; } ;
-        double virtual production(){ return  fabrication() + conditionnement() ; } ;
+       virtual double  production(){ return  fabrication() + conditionnement() ; } ;
         double  fabrication() ;
         
         virtual ~Vaccin() ;
-        void virtual affiche() ;
+        virtual void  affiche() ;
 
 
 };

@@ -8,7 +8,7 @@ class Compagnie {
     public : 
         Compagnie(char* , int ) ;
         void ajoute(Vaccin* Vac ) ;
-        virtuel ~Compagnie() ;
+        virtual ~Compagnie() ;
         void affiche() ;
         double calcul() ;
 

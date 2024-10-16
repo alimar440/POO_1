@@ -3,7 +3,7 @@
 
 #include "personnel.hpp"
 
-enum typeEnseignant {   NoVacataire , Vacataire } ;
+enum typeEnseignant {   NoVacataire , Vacataire  } ;
 
 class enseignant : public personnel
 {
